@@ -1,13 +1,24 @@
-human_turn = input('What will you choose?')
-human_turn_2 = input('What will you choose?')
+from multiprocessing.resource_sharer import stop
+import random
+from timeit import repeat
+a = ['rock', 'paper', 'scissors']
 
-if human_turn == human_turn_2:
-    print ("Draw")
-elif human_turn == 'rock' and human_turn_2 == 'scissors':
-   print ('Player 1 Wins!')
-elif human_turn == 'paper' and human_turn_2 == 'rock':
-   print ('Player 1 Wins!')
-elif human_turn == 'scissors' and human_turn_2 == 'paper':
-   print ('Player 1 Wins!')
-else:
-    print('Player 2 Wins!')
+while(True):
+   human_turn = input('Enter your turn or type exit:')
+   computer_turn = random.choice(a)
+   if human_turn == 'exit':
+      print('See you!')
+      break
+
+   print(f'Human:{human_turn} vs. Computer:{computer_turn}')
+
+   if human_turn == computer_turn:
+      print ("Draw")
+   elif human_turn == 'rock' and computer_turn == 'scissors':
+      print ('Human Wins!')
+   elif human_turn == 'paper' and computer_turn == 'rock':
+      print ('Human Wins!')
+   elif human_turn == 'scissors' and computer_turn == 'paper':
+      print ('Human Wins!')
+   else:
+      print('Computer Wins!')
